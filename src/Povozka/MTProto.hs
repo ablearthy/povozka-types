@@ -1,5 +1,4 @@
-{-# LANGUAGE DuplicateRecordFields, OverloadedRecordDot #-}
-module Povozka.Types where
+module Povozka.MTProto where
 
 import qualified Data.Binary
 import qualified Data.Binary.Get
