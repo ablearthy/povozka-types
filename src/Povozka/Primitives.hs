@@ -1,5 +1,4 @@
-{-# LANGUAGE FunctionalDependencies #-}
-module Povozka.Primitives (Long' (..), Int' (..), Int128' (..), Int256' (..), Bytes' (..), String', Vector' (..), Vector (..), TLFunctionʼ) where
+module Povozka.Primitives (Double' (..), Nat' (..), Long' (..), Int' (..), Int128' (..), Int256' (..), Bytes' (..), String', Vector' (..), Vector (..), TLFunctionʼ) where
 
 import qualified Data.Binary
 import qualified Data.Binary.Get
@@ -10,6 +9,18 @@ import qualified Data.Vector
 import qualified Data.Word
 import qualified Data.Bits
 import qualified Control.Monad
+
+newtype Double' = Double' Double deriving Show
+
+instance Data.Binary.Binary Double' where
+    get = Double' <$> Data.Binary.Get.getDoublele
+    put (Double' x) = Data.Binary.Put.putDoublele x
+
+newtype Nat' = Nat' Data.Word.Word32 deriving Show
+
+instance Data.Binary.Binary Nat' where
+  get = Nat' <$> Data.Binary.Get.getWord32le
+  put (Nat' x) = Data.Binary.Put.putWord32le x
 
 newtype Long' = Long' Data.Word.Word64 deriving Show
 
