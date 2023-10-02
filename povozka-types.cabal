@@ -21,6 +21,7 @@ common warnings
 library
   import:             warnings
   exposed-modules:
+    Povozka.Layer164
     Povozka.MTProto
     Povozka.Primitives
 
