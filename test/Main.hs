@@ -1,7 +1,8 @@
 module Main (main) where
 
 import qualified Data.Binary as B
-import Povozka.Types
+import Povozka.MTProto
+import Povozka.Primitives
 
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as BSL
