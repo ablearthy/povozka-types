@@ -10,7 +10,6 @@ import Prelude hiding (String)
 
 import Povozka.Primitives
 
-
 instance Data.Binary.Binary Bad_msg_notification'
     where {get = do {_bad_msg_id_0 <- Data.Binary.get;
                      _bad_msg_seqno_1 <- Data.Binary.get;
@@ -226,8 +225,8 @@ data Message'
 instance Data.Binary.Binary Message
     where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
                      case tmp_0 of
-                     {165846718 -> fmap Message Data.Binary.get}};
-           put (Message tmp_1) = do {Data.Binary.Put.putWord32le 165846718;
+                     {1538843921 -> fmap Message Data.Binary.get}};
+           put (Message tmp_1) = do {Data.Binary.Put.putWord32le 1538843921;
                                      Data.Binary.put tmp_1}}
 instance Data.Binary.Binary Msg_container'
     where {get = do {_messages_0 <- Data.Binary.get;
@@ -659,9 +658,12 @@ instance Data.Binary.Binary Set_client_DH_params_answer
                                           Data.Binary.put tmp_3}}
 data Method'Req_pq_multi = Method'Req_pq_multi {_nonce :: !Int128'}
 instance Data.Binary.Binary Method'Req_pq_multi
-    where {get = do {_nonce_0 <- Data.Binary.get;
-                     GHC.Base.pure (Method'Req_pq_multi _nonce_0)};
-           put to_be_encoded_1 = do Data.Binary.put to_be_encoded_1._nonce}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {3195965169 -> do {_nonce_1 <- Data.Binary.get;
+                                        GHC.Base.pure (Method'Req_pq_multi _nonce_1)}}};
+           put to_be_encoded_2 = do {Data.Binary.Put.putWord32le 3195965169;
+                                     Data.Binary.put to_be_encoded_2._nonce}}
 instance TLFunctionʼ Method'Req_pq_multi ResPQ
 data Method'Req_DH_params
     = Method'Req_DH_params {_nonce :: !Int128',
@@ -671,73 +673,97 @@ data Method'Req_DH_params
                             _public_key_fingerprint :: !Long',
                             _encrypted_data :: !Bytes'}
 instance Data.Binary.Binary Method'Req_DH_params
-    where {get = do {_nonce_0 <- Data.Binary.get;
-                     _server_nonce_1 <- Data.Binary.get;
-                     _p_2 <- Data.Binary.get;
-                     _q_3 <- Data.Binary.get;
-                     _public_key_fingerprint_4 <- Data.Binary.get;
-                     _encrypted_data_5 <- Data.Binary.get;
-                     GHC.Base.pure (Method'Req_DH_params _nonce_0 _server_nonce_1 _p_2 _q_3 _public_key_fingerprint_4 _encrypted_data_5)};
-           put to_be_encoded_6 = do {Data.Binary.put to_be_encoded_6._nonce;
-                                     Data.Binary.put to_be_encoded_6._server_nonce;
-                                     Data.Binary.put to_be_encoded_6._p;
-                                     Data.Binary.put to_be_encoded_6._q;
-                                     Data.Binary.put to_be_encoded_6._public_key_fingerprint;
-                                     Data.Binary.put to_be_encoded_6._encrypted_data}}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {3608339646 -> do {_nonce_1 <- Data.Binary.get;
+                                        _server_nonce_2 <- Data.Binary.get;
+                                        _p_3 <- Data.Binary.get;
+                                        _q_4 <- Data.Binary.get;
+                                        _public_key_fingerprint_5 <- Data.Binary.get;
+                                        _encrypted_data_6 <- Data.Binary.get;
+                                        GHC.Base.pure (Method'Req_DH_params _nonce_1 _server_nonce_2 _p_3 _q_4 _public_key_fingerprint_5 _encrypted_data_6)}}};
+           put to_be_encoded_7 = do {Data.Binary.Put.putWord32le 3608339646;
+                                     Data.Binary.put to_be_encoded_7._nonce;
+                                     Data.Binary.put to_be_encoded_7._server_nonce;
+                                     Data.Binary.put to_be_encoded_7._p;
+                                     Data.Binary.put to_be_encoded_7._q;
+                                     Data.Binary.put to_be_encoded_7._public_key_fingerprint;
+                                     Data.Binary.put to_be_encoded_7._encrypted_data}}
 instance TLFunctionʼ Method'Req_DH_params Server_DH_Params
 data Method'Set_client_DH_params
     = Method'Set_client_DH_params {_nonce :: !Int128',
                                    _server_nonce :: !Int128',
                                    _encrypted_data :: !Bytes'}
 instance Data.Binary.Binary Method'Set_client_DH_params
-    where {get = do {_nonce_0 <- Data.Binary.get;
-                     _server_nonce_1 <- Data.Binary.get;
-                     _encrypted_data_2 <- Data.Binary.get;
-                     GHC.Base.pure (Method'Set_client_DH_params _nonce_0 _server_nonce_1 _encrypted_data_2)};
-           put to_be_encoded_3 = do {Data.Binary.put to_be_encoded_3._nonce;
-                                     Data.Binary.put to_be_encoded_3._server_nonce;
-                                     Data.Binary.put to_be_encoded_3._encrypted_data}}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {4110704415 -> do {_nonce_1 <- Data.Binary.get;
+                                        _server_nonce_2 <- Data.Binary.get;
+                                        _encrypted_data_3 <- Data.Binary.get;
+                                        GHC.Base.pure (Method'Set_client_DH_params _nonce_1 _server_nonce_2 _encrypted_data_3)}}};
+           put to_be_encoded_4 = do {Data.Binary.Put.putWord32le 4110704415;
+                                     Data.Binary.put to_be_encoded_4._nonce;
+                                     Data.Binary.put to_be_encoded_4._server_nonce;
+                                     Data.Binary.put to_be_encoded_4._encrypted_data}}
 instance TLFunctionʼ Method'Set_client_DH_params
                      Set_client_DH_params_answer
 data Method'Rpc_drop_answer
     = Method'Rpc_drop_answer {_req_msg_id :: !Long'}
 instance Data.Binary.Binary Method'Rpc_drop_answer
-    where {get = do {_req_msg_id_0 <- Data.Binary.get;
-                     GHC.Base.pure (Method'Rpc_drop_answer _req_msg_id_0)};
-           put to_be_encoded_1 = do Data.Binary.put to_be_encoded_1._req_msg_id}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {1491380032 -> do {_req_msg_id_1 <- Data.Binary.get;
+                                        GHC.Base.pure (Method'Rpc_drop_answer _req_msg_id_1)}}};
+           put to_be_encoded_2 = do {Data.Binary.Put.putWord32le 1491380032;
+                                     Data.Binary.put to_be_encoded_2._req_msg_id}}
 instance TLFunctionʼ Method'Rpc_drop_answer RpcDropAnswer
 data Method'Get_future_salts
     = Method'Get_future_salts {_num :: !Int'}
 instance Data.Binary.Binary Method'Get_future_salts
-    where {get = do {_num_0 <- Data.Binary.get;
-                     GHC.Base.pure (Method'Get_future_salts _num_0)};
-           put to_be_encoded_1 = do Data.Binary.put to_be_encoded_1._num}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {3105996036 -> do {_num_1 <- Data.Binary.get;
+                                        GHC.Base.pure (Method'Get_future_salts _num_1)}}};
+           put to_be_encoded_2 = do {Data.Binary.Put.putWord32le 3105996036;
+                                     Data.Binary.put to_be_encoded_2._num}}
 instance TLFunctionʼ Method'Get_future_salts FutureSalts
 data Method'Ping = Method'Ping {_ping_id :: !Long'}
 instance Data.Binary.Binary Method'Ping
-    where {get = do {_ping_id_0 <- Data.Binary.get;
-                     GHC.Base.pure (Method'Ping _ping_id_0)};
-           put to_be_encoded_1 = do Data.Binary.put to_be_encoded_1._ping_id}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {2059302892 -> do {_ping_id_1 <- Data.Binary.get;
+                                        GHC.Base.pure (Method'Ping _ping_id_1)}}};
+           put to_be_encoded_2 = do {Data.Binary.Put.putWord32le 2059302892;
+                                     Data.Binary.put to_be_encoded_2._ping_id}}
 instance TLFunctionʼ Method'Ping Pong
 data Method'Ping_delay_disconnect
     = Method'Ping_delay_disconnect {_ping_id :: !Long',
                                     _disconnect_delay :: !Int'}
 instance Data.Binary.Binary Method'Ping_delay_disconnect
-    where {get = do {_ping_id_0 <- Data.Binary.get;
-                     _disconnect_delay_1 <- Data.Binary.get;
-                     GHC.Base.pure (Method'Ping_delay_disconnect _ping_id_0 _disconnect_delay_1)};
-           put to_be_encoded_2 = do {Data.Binary.put to_be_encoded_2._ping_id;
-                                     Data.Binary.put to_be_encoded_2._disconnect_delay}}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {4081220492 -> do {_ping_id_1 <- Data.Binary.get;
+                                        _disconnect_delay_2 <- Data.Binary.get;
+                                        GHC.Base.pure (Method'Ping_delay_disconnect _ping_id_1 _disconnect_delay_2)}}};
+           put to_be_encoded_3 = do {Data.Binary.Put.putWord32le 4081220492;
+                                     Data.Binary.put to_be_encoded_3._ping_id;
+                                     Data.Binary.put to_be_encoded_3._disconnect_delay}}
 instance TLFunctionʼ Method'Ping_delay_disconnect Pong
 data Method'Destroy_session
     = Method'Destroy_session {_session_id :: !Long'}
 instance Data.Binary.Binary Method'Destroy_session
-    where {get = do {_session_id_0 <- Data.Binary.get;
-                     GHC.Base.pure (Method'Destroy_session _session_id_0)};
-           put to_be_encoded_1 = do Data.Binary.put to_be_encoded_1._session_id}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {3880853798 -> do {_session_id_1 <- Data.Binary.get;
+                                        GHC.Base.pure (Method'Destroy_session _session_id_1)}}};
+           put to_be_encoded_2 = do {Data.Binary.Put.putWord32le 3880853798;
+                                     Data.Binary.put to_be_encoded_2._session_id}}
 instance TLFunctionʼ Method'Destroy_session DestroySessionRes
 data Method'Destroy_auth_key = Method'Destroy_auth_key {}
 instance Data.Binary.Binary Method'Destroy_auth_key
-    where {get = GHC.Base.pure Method'Destroy_auth_key;
-           put to_be_encoded_0 = do GHC.Base.pure ()}
+    where {get = do {tmp_0 <- Data.Binary.Get.getWord32le;
+                     case tmp_0 of
+                     {3510849888 -> GHC.Base.pure Method'Destroy_auth_key}};
+           put to_be_encoded_1 = do {Data.Binary.Put.putWord32le 3510849888;
+                                     GHC.Base.pure ()}}
 instance TLFunctionʼ Method'Destroy_auth_key DestroyAuthKeyRes
