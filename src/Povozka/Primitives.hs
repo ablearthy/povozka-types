@@ -64,8 +64,9 @@ instance Data.Binary.Binary Bytes' where
             _ <- Data.Binary.Get.getByteString ((4 - (sz `mod` 4)) `mod` 4)
             pure $ Bytes' s
         _ -> do
-            s <- Data.Binary.Get.getByteString (fromIntegral fstByte)
-            _ <- Data.Binary.Get.getByteString ((4 - (fromIntegral fstByte `mod` 4)) `mod` 4)
+            let size = fromIntegral fstByte
+            s <- Data.Binary.Get.getByteString size
+            _ <- Data.Binary.Get.getByteString ((4 - ((size + 1) `mod` 4)) `mod` 4)
             pure $ Bytes' s
 
   put (Bytes' s) = do
