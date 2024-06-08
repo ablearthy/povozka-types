@@ -59,7 +59,7 @@ instance Data.Binary.Binary Bytes' where
             b1 <- fromIntegral <$> Data.Binary.Get.getWord8
             b2 <- fromIntegral <$> Data.Binary.Get.getWord8
             b3 <- fromIntegral <$> Data.Binary.Get.getWord8
-            let sz = b1 + b2 * 16 + b3 * 256
+            let sz = b1 + b2 * 256 + b3 * 65536
             s <- Data.Binary.Get.getByteString sz
             _ <- Data.Binary.Get.getByteString ((4 - (sz `mod` 4)) `mod` 4)
             pure $ Bytes' s
