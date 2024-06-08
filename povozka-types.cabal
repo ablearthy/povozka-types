@@ -33,7 +33,7 @@ library
     OverloadedRecordDot
 
   build-depends:
-    , base        ^>=4.17.1.0
+    , base
     , binary
     , bytestring
     , vector
@@ -51,7 +51,7 @@ test-suite povozka-types-test
   hs-source-dirs:   test
   main-is:          Main.hs
   build-depends:
-    , base           ^>=4.17.1.0
+    , base
     , binary
     , bytestring
     , povozka-types
